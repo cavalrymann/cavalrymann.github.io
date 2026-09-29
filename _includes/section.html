@@ -1,0 +1,24 @@
+{% assign section = include.section %}
+{% assign section_body = section.content | strip %}
+<section class="main-section" data-panel="{{ section.section_id }}" data-title="{{ section.nav_title | escape }}" id="tp-{{ section.section_id }}"{% unless section.section_id == 'about' %} hidden{% endunless %}>
+  <div class="section-label"><span>{{ section.number }}</span><span>{{ section.label | escape }}</span></div>
+  {% if section.section_id == 'projects' %}
+    <div class="projects-heading"><h2>{{ section.heading }}</h2>{% if section_body != '' %}<div class="copy">{{ section_body | markdownify }}</div>{% endif %}</div>
+    <div class="projects-workspace">
+      {% include projects.html %}
+      {% include terminal.html intro=section.terminal_intro hint=section.terminal_hint %}
+    </div>
+  {% else %}
+    <div>
+      <h2>{{ section.heading }}</h2>
+      {% if section_body != '' %}<div class="copy">{{ section_body | markdownify }}</div>{% endif %}
+      {% if section.section_id == 'cv' %}
+        {% include cv.html entries=section.entries %}
+      {% endif %}
+      {% if section.section_id == 'contact' %}
+        {% include social.html extra_class='contact-icons' %}
+      {% endif %}
+      {% include links.html links=section.links %}
+    </div>
+  {% endif %}
+</section>

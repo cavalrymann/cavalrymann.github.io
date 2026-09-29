@@ -1,0 +1,17 @@
+<div class="eyebrow" data-about-only><span>{{ profile.field | escape }}</span><span>{{ profile.location_short | escape }}</span></div>
+<div class="hero" data-about-only>
+  <div>
+    <h1>{{ profile.first_name | escape }}<br>{{ profile.last_name | escape }}.</h1>
+    <div class="tibetan" lang="bo">{{ profile.tibetan }}</div>
+  </div>
+  <div class="hero-aside">
+  <img
+    class="portrait"
+    src="{{ '/assets/images/portrait.jpg' | relative_url }}"
+    alt="Tashi Phagmo wearing a motorcycle helmet"
+    width="220"
+    height="275"
+  >
+  {% include social.html %}
+</div>
+</div>

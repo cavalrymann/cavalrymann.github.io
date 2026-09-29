@@ -1,0 +1,9 @@
+<div class="social-icons {{ include.extra_class }}" role="group" aria-label="Contact links">
+  {% for social in site.data.social %}
+    {% if social.url and social.url != '' %}
+      <a class="social-icon" data-kind="{{ social.kind | escape }}" href="{{ social.url | escape }}"{% if social.url contains 'https://' %} target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ social.label | escape }}" title="{{ social.label | escape }}"><span class="brand-glyph" aria-hidden="true"></span></a>
+    {% else %}
+      <button class="social-icon" data-kind="{{ social.kind | escape }}" type="button" aria-label="{{ social.label | escape }} — profile link pending" title="{{ social.label | escape }} — profile link pending" disabled><span class="brand-glyph" aria-hidden="true"></span></button>
+    {% endif %}
+  {% endfor %}
+</div>

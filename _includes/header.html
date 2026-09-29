@@ -1,0 +1,9 @@
+<header>
+  <div class="signature"><b aria-hidden="true"></b><span data-site-title>{{ full_name | strip | escape }}</span></div>
+  <nav aria-label="Personal website sections">
+    {% assign navigation = site.sections | sort: 'order' %}
+    {% for item in navigation %}
+      <a href="#tp-{{ item.section_id }}" data-section="{{ item.section_id }}"{% if item.section_id == 'about' %} aria-current="page"{% endif %}>{{ item.nav_title | escape }}</a>
+    {% endfor %}
+  </nav>
+</header>

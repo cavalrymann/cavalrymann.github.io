@@ -1,0 +1,12 @@
+- kind: email
+  label: Email
+  url: "mailto:phagmotashi@proton.me"
+- kind: linkedin
+  label: LinkedIn
+  url: "https://linkedin.com/in/tashi-phagmo-b39670314/"
+- kind: telegram
+  label: Telegram
+  url: "https://t.me/phagmotashi"
+- kind: github
+  label: GitHub
+  url: "https://github.com/cavalrymann"

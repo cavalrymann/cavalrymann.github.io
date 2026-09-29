@@ -1,0 +1,11 @@
+<div class="cv-entries">
+  {% for entry in include.entries %}
+    <div class="work-row">
+      <div>
+        <p class="work-title">{{ entry.title | escape }}{% if entry.organisation %} · {% if entry.url %}<a href="{{ entry.url | escape }}" target="_blank" rel="noopener noreferrer">{{ entry.organisation | escape }}</a>{% else %}{{ entry.organisation | escape }}{% endif %}{% endif %}</p>
+        <p class="work-meta">{{ entry.details | escape }}</p>
+      </div>
+      <span class="year">{{ entry.year }}</span>
+    </div>
+  {% endfor %}
+</div>

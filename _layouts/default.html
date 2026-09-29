@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="theme-color" content="#FAF9F6">
+  <title>{{ site.title | escape }} | Materials science &amp; machine learning</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tibetan:wght@400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+</head>
+<body>
+  {% assign profile = site.data.profile %}
+  {% capture full_name %}{{ profile.first_name }} {{ profile.last_name }}{% endcapture %}
+  <div id="tashi-website" data-site-name="{{ full_name | strip | escape }}">
+    {% include corners.html %}
+    {% include header.html %}
+    {% include hero.html %}
+    <main>{{ content }}</main>
+    <footer><span>© {{ profile.copyright_year }}</span><span>{{ profile.location | escape }}</span></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% if include.links.size > 0 %}
+<div class="section-links">
+  {% for link in include.links %}
+    {% if link.section %}
+      <a href="#tp-{{ link.section }}" data-section="{{ link.section }}">{{ link.text | escape }}</a>
+    {% else %}
+      {% if link.url contains '://' or link.url contains 'mailto:' %}
+        <a href="{{ link.url | escape }}">{{ link.text | escape }}</a>
+      {% else %}
+        <a href="{{ link.url | relative_url | escape }}">{{ link.text | escape }}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}

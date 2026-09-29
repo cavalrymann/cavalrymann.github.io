@@ -1,0 +1,11 @@
+<div class="project-description">
+  {% assign projects = site.projects | sort: 'order' %}
+  {% for project in projects %}
+    <details data-project="{{ project.project_id }}"{% if forloop.first %} open{% endif %}>
+      <summary>{{ project.title | escape }}</summary>
+      <p class="work-meta">{{ project.meta | escape }}</p>
+      <div class="copy">{{ project.content | markdownify }}</div>
+      {% include links.html links=project.links %}
+    </details>
+  {% endfor %}
+</div>

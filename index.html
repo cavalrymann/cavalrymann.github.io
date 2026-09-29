@@ -1,0 +1,7 @@
+---
+layout: default
+---
+{% assign sections = site.sections | sort: 'order' %}
+{% for section in sections %}
+  {% include section.html section=section %}
+{% endfor %}

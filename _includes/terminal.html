@@ -1,0 +1,35 @@
+{% assign projects = site.projects | sort: 'order' %}
+<div class="terminal" role="region" aria-label="Project terminal">
+  <div class="terminal-bar">
+    <span class="terminal-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="terminal-title" data-terminal-title>projects — zsh</span>
+    <span aria-hidden="true"></span>
+  </div>
+  <div class="terminal-body" data-terminal-body>
+    <p class="terminal-welcome">{{ include.intro | escape }}<br>{{ include.hint | escape }}</p>
+    <div data-terminal-history role="log" aria-label="Terminal output" aria-live="polite" aria-relevant="additions text">
+      <div class="terminal-entry">
+        <div class="terminal-command"><span class="terminal-prompt">visitor@portfolio projects % </span>ls</div>
+        <pre class="terminal-output">README.md  <span class="terminal-prompt">{% for project in projects %}{{ project.project_id }}/{% unless forloop.last %}  {% endunless %}{% endfor %}</span></pre>
+      </div>
+    </div>
+    <form class="terminal-input-line" data-terminal-form>
+      <span class="terminal-prompt" data-terminal-prompt aria-hidden="true">visitor@portfolio projects %</span>
+      <input name="command" aria-label="Terminal command" aria-describedby="tp-terminal-hint" placeholder="cd mace" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" maxlength="240">
+    </form>
+  </div>
+  <div class="terminal-hint" id="tp-terminal-hint">help · ↑↓ history · Tab complete · ⌃L clear</div>
+</div>
+<script type="application/json" data-project-files>
+[
+{% for project in projects %}
+  {
+    "id": {{ project.project_id | jsonify }},
+    "title": {{ project.title | jsonify | replace: '</', '<\/' }},
+    "meta": {{ project.meta | jsonify | replace: '</', '<\/' }},
+    "body": {{ project.content | strip_html | strip | jsonify | replace: '</', '<\/' }},
+    "methods": {{ project.methods | strip | jsonify | replace: '</', '<\/' }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+</script>

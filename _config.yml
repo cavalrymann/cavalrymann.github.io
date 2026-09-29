@@ -1,0 +1,24 @@
+title: Tashi Phagmo
+description: Materials science, atomistic modeling and machine learning.
+url: "https://cavalrymann.github.io"
+baseurl: ""
+lang: en
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+collections:
+  sections:
+    output: false
+  projects:
+    output: false
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - preview.command
+  - docs
+  - scripts
+  - tests
